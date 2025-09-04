@@ -37,7 +37,7 @@ def parse_items(block):
     return items
 
 def notify(item):
-    msg = f"[Ny orienteringsnyhet] {item['title']} ({item['date']})\n{URL}"
+    msg = f"[Ny melding] {item['title']} ({item['date']})"
     requests.post(f"https://ntfy.sh/{TOPIC}", data=msg.encode("utf-8"))
 
 def main():
