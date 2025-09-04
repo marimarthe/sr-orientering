@@ -1,0 +1,18 @@
+name: sor-rogaland-news
+on:
+  schedule:
+    - cron: "*/2 * * * *"   # kjør hvert 2. minutt
+  workflow_dispatch:
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests beautifulsoup4
+      - run: python watcher.py
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update seen ids"
