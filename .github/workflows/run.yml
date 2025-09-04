@@ -1,7 +1,7 @@
 name: sor-rogaland-news
 on:
   schedule:
-    - cron: "*/2 * * * *"   # kjør hvert 2. minutt
+    - cron: "*/30 * * * *"   # kjør hvert 2. minutt
   workflow_dispatch:
 jobs:
   run:
